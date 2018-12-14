@@ -2,7 +2,7 @@
   height: 90px;
   width: 100%;
   background-color: #B8C3C7;
-  .main__footer--form {
+  &--form {
     height: 90px;
     margin: 0 40px;
     position: relative;
@@ -18,7 +18,7 @@
       position: absolute;
       top: 33px;
       right: 13%;
-  }
+    }
     .main__footer--form-btn {
       height: 50px;
       width: 100px;

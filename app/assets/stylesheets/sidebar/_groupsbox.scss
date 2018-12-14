@@ -2,7 +2,7 @@
 .sidebar__group {
   padding: 20px;
   color: $color-sidebar;
-  .sidebar__group-name {
+  &-name {
     font-size: 15px;
   }
   .sidebar__group-message {
