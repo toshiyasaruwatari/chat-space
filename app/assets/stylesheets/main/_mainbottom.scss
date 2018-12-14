@@ -1,0 +1,35 @@
+.main__footer {
+  height: 90px;
+  width: 100%;
+  background-color: #B8C3C7;
+  .main__footer--form {
+    height: 90px;
+    margin: 0 40px;
+    position: relative;
+    .main__footer--form-body {
+      font-size: 16px;
+      height: 50px;
+      width: calc(100% - 130px);
+      margin: 20px 0;
+      padding-left: 10px;
+      border: none;
+    }
+    .chat-file {
+      position: absolute;
+      top: 33px;
+      right: 13%;
+  }
+    .main__footer--form-btn {
+      height: 50px;
+      width: 100px;
+      color: #fff;
+      background-color: #38AEF0;
+      text-align: center;
+      margin: 20px 0 20px 15px;
+      border: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+  .main__body {
+    height: calc(100vh - 15% - 90px);
+    .main__body--messages {
+      padding-top: 26px;
+      padding-left: 40px;
+      .main__message {
+        padding: 20px 0;
+        .main__message-name {
+          font-size: 16px;
+          font-weight: bold;
+          color: #434A54;
+          display: inline-block;
+          margin-right: 10px;
+        }
+        .main__message-time {
+          font-size: 12px;
+          color: $color-member-time;
+          display: inline-block;
+        }
+        .main__message-text {
+          font-size: 14px;
+          color: #434A54;
+          padding-top: 10px;
+        }
+      }
+    }
+  }
