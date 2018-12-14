@@ -1,0 +1,35 @@
+.main {
+  height: 100vh;
+  width: calc(100vw - 300px);
+  float: right;
+  &__header {
+    height: 15%;
+    border: 1px solid #eee;
+    .main__header--group {
+      margin: 0 40px;
+      overflow: hidden;
+      .main__header--group-name {
+        color: #333;
+        margin: 35px 0 15px;
+        font-size: 20px;
+        display: inline-block;
+        float: left;
+      }
+      .main__header--edit-btn {
+        display: inline-block;
+        float: right;
+        padding: 10px 20px;
+        margin-top: 28px;
+        border: 2px solid $color-button;
+        color: $color-button;
+        font-size: 15px;
+        text-decoration: none;
+      }
+    }
+    .main__header--member {
+      font-size: 12px;
+      color: $color-member-time;
+      margin-left: 40px;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+
+.sidebar__group {
+  padding: 20px;
+  color: $color-sidebar;
+  &-name {
+    font-size: 15px;
+  }
+  .sidebar__group-message {
+    font-size: 11px;
+  }
+}
+
