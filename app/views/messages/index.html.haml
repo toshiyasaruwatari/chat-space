@@ -1,31 +1,31 @@
-.contents
-  .sidebar
-    .sidebar__user
-      .sidebar__user-box
-        .sidebar__user-name user-name
-        = link_to '#', class: 'sidebar__user--group-new' do
-          %i.fa.fa-edit
-        = link_to '#', class: 'sidebar__user--edit-user' do
-          %i.fa.fa-cog
-    .sidebar__groups
-      =link_to '#' do
-        = render partial: 'groups/group'
+.sidebar
+  .sidebar__user
+    .sidebar__user-box
+      .sidebar__user-name
+        = current_user.name
+      = link_to '#' do
+        = fa_icon 'pencil-square-o', class: 'icon1'
+      = link_to edit_user_path(current_user) do
+        = fa_icon 'cog', class: 'icon2'
+  .sidebar__groups
+    =link_to '#' do
+      = render partial: 'groups/group'
 
-  .main
-    .main__header
-      .main__header--group
-        .main__header--group-name group-name
-        = link_to '#', class: 'main__header--edit-btn' do
-          Edit
-      .main__header--member Members: hoge hoge hoge
+.main
+  .main__header
+    .main__header--group
+      .main__header--group-name group-name
+      = link_to '#', class: 'main__header--edit-btn' do
+        Edit
+    .main__header--member Members: hoge hoge hoge
 
-    .main__body
-      = render partial: 'messages/message'
+  .main__body
+    = render partial: 'messages/message'
 
-    .main__footer
-      .main__footer--form
-        %input{ placeholder: 'type a message', class: 'main__footer--form-body', type: 'text'}
-          %label{ class: 'chat-file'}
-            %input{ class: 'image', type: 'file', style: 'display: none;' }
-              %i.fa.fa-image
-        %input{ type: 'submit', value: 'Send', class: 'main__footer--form-btn' }
+  .main__footer
+    .main__footer--form
+      %input{ placeholder: 'type a message', class: 'main__footer--form-body', type: 'text'}
+        %label{ class: 'chat-file'}
+          %input{ class: 'image', type: 'file', style: 'display: none;' }
+            %i.fa.fa-image
+      %input{ type: 'submit', value: 'Send', class: 'main__footer--form-btn' }
