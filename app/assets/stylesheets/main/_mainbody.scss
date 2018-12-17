@@ -8,7 +8,7 @@
       .main__message-name {
         font-size: 16px;
         font-weight: bold;
-        color: #434A54;
+        color: $black;
         display: inline-block;
         margin-right: 10px;
       }
@@ -19,7 +19,7 @@
       }
       .main__message-text {
         font-size: 14px;
-        color: #434A54;
+        color: $black;
         padding-top: 10px;
       }
     }
