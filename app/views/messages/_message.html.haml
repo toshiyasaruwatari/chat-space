@@ -1,9 +1,10 @@
 .main__body--messages
   .main__message
-    .main__message-name hoge
-    .main__message-time 2018/12/13 17:04:00
-    .main__message-text テキストテキストテキストテキストテキストテキストテキスト
-  .main__message
-    .main__message-name piyo
-    .main__message-time 2018/12/13 17:04:35
-    .main__message-text テキストテキストテキストテキストテキストテキストテキスト
+    .main__message-name
+      = message.user.name
+    .main__message-time
+      = message.created_at.strftime ("%Y/%m/%d %H:%M")
+    .main__message-text
+      - if message.body.present?
+        = message.body
+      = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
