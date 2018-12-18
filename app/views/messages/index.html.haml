@@ -1,18 +1,23 @@
+.sidebar
+  = render 'shared/side_bar'
+
 .main
   .main__header
     .main__header--group
-      .main__header--group-name group-name
-      = link_to "/groups/1/edit", class: 'main__header--edit-btn' do
+      .main__header--group-name
+        = @group.name
+      = link_to edit_group_path(@group), class: 'main__header--edit-btn' do
         Edit
     .main__header--member Members: hoge hoge hoge
 
   .main__body
-    = render partial: 'messages/message'
+    = render @messages
 
   .main__footer
-    .main__footer--form
-      %input{ placeholder: 'type a message', class: 'main__footer--form-body', type: 'text'}
-        %label{ class: 'chat-file'}
-          %input{ class: 'image', type: 'file', style: 'display: none;' }
-            %i.fa.fa-image
-      %input{ type: 'submit', value: 'Send', class: 'main__footer--form-btn' }
+    = form_for [@group, @message] do |f|
+      = f.text_field :body, class: 'main__footer__message', placeholder: 'type a message'
+      .main__footer__mask
+        = f.label :image, class: 'main__footer__mask__image' do
+          = fa_icon 'picture-o', class: 'icon'
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'main__footer__submit'
