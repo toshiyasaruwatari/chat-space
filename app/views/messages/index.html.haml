@@ -8,7 +8,10 @@
         = @group.name
       = link_to edit_group_path(@group), class: 'main__header--edit-btn' do
         Edit
-    .main__header--member Members: hoge hoge hoge
+    .main__header--member
+      = "Member : "
+      - @group.users.each do |user|
+        = user.name
 
   .main__body
     = render @messages
