@@ -1,5 +1,6 @@
 .main__body {
   height: calc(100vh - 15% - 90px);
+  overflow: scroll;
   &--messages {
     padding-top: 26px;
     padding-left: 40px;
