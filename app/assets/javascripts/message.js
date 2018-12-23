@@ -11,7 +11,7 @@ $(function(){
           ${message.created_at}
         </div>
         <div class="main__message-text">
-          <p>${message.body ? message.body : ""}</p>
+          <p>${message.body}</p>
           ${addImage}
         </div>
       </div>
@@ -22,7 +22,6 @@ $(function(){
     e.preventDefault();
 
     let form = $('#new_message');
-
     let fd = new FormData(this);
 
     $.ajax({
@@ -35,8 +34,7 @@ $(function(){
     })
     .done(function(data){
       console.log("成功");
-      let html = buildHTML(data);
-      $('.main__body').append(html)
+      $('.main__body').append(buildHTML(data))
       form.get(0).reset();
       $('.main__body').animate({scrollTop: $('.main__body')[0].scrollHeight}, 'fast');
     })
