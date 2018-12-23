@@ -18,5 +18,6 @@ module ChatSpace
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
 
     config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
+    config.time_zone = 'Tokyo'
   end
 end

@@ -17,7 +17,7 @@
     = render @messages
 
   .main__footer
-    = form_for [@group, @message] do |f|
+    = form_for [@group, @message], html: {id: 'new_message'} do |f|
       = f.text_field :body, class: 'main__footer__message', placeholder: 'type a message'
       .main__footer__mask
         = f.label :image, class: 'main__footer__mask__image' do
