@@ -1,5 +1,5 @@
 $(function() {
-  function appendUser(user) {
+  function append_user(user) {
     let html =
     `<div class="chat-group-user clearfix">
         <p class="chat-group-user__name">${user.name}</p>
@@ -20,7 +20,7 @@ $(function() {
     })
     .done(function(users){
       users.forEach(function(user){
-        $('.chat-group-form__search').append(appendUser(user))
+        $('.chat-group-form__search').append(append_user(user))
       });
     })
     .fail(function() {
@@ -28,7 +28,7 @@ $(function() {
     });
   });
 
-  function addMember(name, id) {
+  function add_member(name, id) {
     let html =
     `<div class='chat-group-user clearfix js-chat-member' id='${id}'>
       <input name='group[user_ids][]' type='hidden' value='${id}'>
@@ -42,7 +42,7 @@ $(function() {
 
     let user_name = $(this).data("user-name");
     let user_id = $(this).data("user-id");
-    let add_user_html = addMember(user_name, user_id)
+    let add_user_html = add_member(user_name, user_id)
 
     $('.chat-group-form__member').append(add_user_html);
     $(this).parent().remove();
