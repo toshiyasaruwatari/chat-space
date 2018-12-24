@@ -17,5 +17,11 @@
             = f.label :email
           .field-input
             = f.email_field :email
+        .field
+          .field-label
+            = f.label :password
+            %i (英数字8文字以上)
+          .field-input
+            = f.password_field :password, autocomplete: "off"
         .actions
           = f.submit "Create Account", class: 'btn'
