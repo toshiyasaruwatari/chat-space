@@ -8,7 +8,7 @@ $(function(){
           ${message.name}
         </div>
         <div class="main__message-time">
-          ${message.created_at}
+          ${message.date}
         </div>
         <div class="main__message-text">
           <p>${message.body}</p>
@@ -18,6 +18,7 @@ $(function(){
     </div>`
     return html;
   };
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
 
@@ -33,7 +34,6 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      console.log("成功");
       $('.main__body').append(buildHTML(data))
       form.get(0).reset();
       $('.main__body').animate({scrollTop: $('.main__body')[0].scrollHeight}, 'fast');
@@ -43,4 +43,37 @@ $(function(){
     });
     return false;
   });
+
+  $(function(){
+    $(function(){
+      if (window.location.href.match(/\/groups\/\d+\/messages/))
+        setInterval(update, 5000);
+    });
+    function update(){
+      let messageId = ""
+      if($('.main__body--messages')[0]){
+        messageId = $('.main__body--messages:last').data('message-id');
+      } else {
+        return false;
+      }
+
+      $.ajax({
+        url: location.href,
+        type: 'GET',
+        data: { id: messageId },
+        dataType: 'json'
+      })
+
+      .done(function(data){
+        if (data.messages.length != 0){
+          $.each(data.messages, function(i, message){
+            $('.main__body').append(buildHTML(message))
+          });
+        }
+      })
+      .fail(function(data){
+        alert('自動更新に失敗しました')
+      });
+    }
+  })
 });
