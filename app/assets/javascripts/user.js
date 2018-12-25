@@ -1,11 +1,11 @@
 $(function() {
-  function append_user(user) {
+  function appendUser(user) {
     let html =
     `<div class="chat-group-user clearfix">
         <p class="chat-group-user__name">${user.name}</p>
         <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</a>
     </div>`
-    return html
+    return html;
   }
 
   $("#user-search-field").on("keyup", function(){
@@ -20,7 +20,7 @@ $(function() {
     })
     .done(function(users){
       users.forEach(function(user){
-        $('.chat-group-form__search').append(append_user(user))
+        $('.chat-group-form__search').append(appendUser(user))
       });
     })
     .fail(function() {
@@ -28,23 +28,23 @@ $(function() {
     });
   });
 
-  function add_member(name, id) {
+  function addMember(name, id) {
     let html =
     `<div class='chat-group-user clearfix js-chat-member' id='${id}'>
       <input name='group[user_ids][]' type='hidden' value='${id}'>
       <p class='chat-group-user__name'>${name}</p>
       <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
     </div>`
-    return html
+    return html;
   }
 
   $(document).on("click", ".user-search-add", function(){
 
-    let user_name = $(this).data("user-name");
-    let user_id = $(this).data("user-id");
-    let add_user_html = add_member(user_name, user_id)
+    let userName = $(this).data("user-name");
+    let userId = $(this).data("user-id");
+    let addUserHtml = addMember(userName, userId)
 
-    $('.chat-group-form__member').append(add_user_html);
+    $('.chat-group-form__member').append(addUserHtml);
     $(this).parent().remove();
   });
 
