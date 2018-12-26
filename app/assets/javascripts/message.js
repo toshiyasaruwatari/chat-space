@@ -65,8 +65,8 @@ $(function(){
       })
 
       .done(function(data){
-        if (data.messages.length != 0){
-          $.each(data.messages, function(i, message){
+        if (data.length != 0){
+          $.each(data, function(i, message){
             $('.main__body').append(buildHTML(message))
           });
         }
