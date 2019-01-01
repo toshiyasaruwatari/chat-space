@@ -11,21 +11,24 @@ $(function() {
   $("#user-search-field").on("keyup", function(){
 
     let input = $("#user-search-field").val();
-
-    $.ajax({
-      type: 'GET',
-      url: '/users',
-      data: { keyword: input },
-      dataType: 'json'
-    })
-    .done(function(users){
-      users.forEach(function(user){
-        $('.chat-group-form__search').append(appendUser(user))
+    if(input !== ""){
+      $.ajax({
+        type: 'GET',
+        url: '/users',
+        data: { keyword: input },
+        dataType: 'json'
+      })
+      .done(function(users){
+        users.forEach(function(user){
+          $('#user-search-result').append(appendUser(user))
+        });
+      })
+      .fail(function() {
+        alert('ユーザー検索に失敗しました')
       });
-    })
-    .fail(function() {
-      alert('ユーザー検索に失敗しました')
-    });
+    }else{
+      $('#user-search-result').empty();
+    }
   });
 
   function addMember(name, id) {
@@ -44,7 +47,7 @@ $(function() {
     let userId = $(this).data("user-id");
     let addUserHtml = addMember(userName, userId)
 
-    $('.chat-group-form__member').append(addUserHtml);
+    $('#add-user-list').append(addUserHtml);
     $(this).parent().remove();
   });
 
