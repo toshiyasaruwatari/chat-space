@@ -52,7 +52,6 @@ $(function(){
     function update(){
       if($('.main__body--messages')[0]){
         messageId = $('.main__body--messages:last').data('message-id');
-        console.log(messageId)
       } else {
         messageId = 0
       }
