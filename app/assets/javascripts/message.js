@@ -50,10 +50,11 @@ $(function(){
         setInterval(update, 5000);
     });
     function update(){
+      messageId = ""
       if($('.main__body--messages')[0]){
         messageId = $('.main__body--messages:last').data('message-id');
       } else {
-        messageId = 0
+        return false;
       }
 
       $.ajax({
