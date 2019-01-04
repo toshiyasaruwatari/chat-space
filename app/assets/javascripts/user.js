@@ -1,4 +1,7 @@
 $(function() {
+
+  let userIds = [];
+
   function appendUser(user) {
     let html =
     `<div class="chat-group-user clearfix">
@@ -20,7 +23,9 @@ $(function() {
       })
       .done(function(users){
         users.forEach(function(user){
-          $('#user-search-result').append(appendUser(user))
+          if ($.inArray(user.id, userIds) < 0 ) {
+            $('#user-search-result').append(appendUser(user))
+          }
         });
       })
       .fail(function() {
@@ -45,6 +50,7 @@ $(function() {
 
     let userName = $(this).data("user-name");
     let userId = $(this).data("user-id");
+    userIds.push(userId);
     let addUserHtml = addMember(userName, userId)
 
     $('#add-user-list').append(addUserHtml);
