@@ -68,8 +68,8 @@ $(function(){
           $.each(data, function(i, message){
             $('.main__body').append(buildHTML(message))
           });
+          $('.main__body').animate({scrollTop: $('.main__body')[0].scrollHeight}, 'fast');
         }
-        $('.main__body').animate({scrollTop: $('.main__body')[0].scrollHeight}, 'fast');
       })
       .fail(function(data){
         alert('自動更新に失敗しました')
