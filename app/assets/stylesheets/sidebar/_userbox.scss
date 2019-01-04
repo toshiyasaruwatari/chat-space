@@ -42,5 +42,9 @@
         }
       }
     }
+    &__groups {
+      height: 85%;
+      overflow: scroll;
+    }
   }
 }

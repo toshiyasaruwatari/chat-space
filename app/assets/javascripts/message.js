@@ -2,7 +2,7 @@ $(function(){
   function buildHTML(message){
     let addImage = message.image ? `<img src="${message.image}">` : ""
     let html =
-    `<div class="main__body--messages">
+    `<div class="main__body--messages" data-message-id="${message.id}">
       <div class="main__message">
         <div class="main__message-name">
           ${message.name}
@@ -50,11 +50,11 @@ $(function(){
         setInterval(update, 5000);
     });
     function update(){
-      let messageId = ""
       if($('.main__body--messages')[0]){
         messageId = $('.main__body--messages:last').data('message-id');
+        console.log(messageId)
       } else {
-        return false;
+        messageId = 0
       }
 
       $.ajax({
@@ -70,6 +70,7 @@ $(function(){
             $('.main__body').append(buildHTML(message))
           });
         }
+        $('.main__body').animate({scrollTop: $('.main__body')[0].scrollHeight}, 'fast');
       })
       .fail(function(data){
         alert('自動更新に失敗しました')
