@@ -2,6 +2,11 @@ $(function() {
 
   let userIds = [];
 
+  $('.js-chat-member').each(function(i, member){
+    let memberId = $(member).data('id');
+    userIds.push(memberId);
+  });
+
   function appendUser(user) {
     let html =
     `<div class="chat-group-user clearfix id="${user.id}">
@@ -22,6 +27,7 @@ $(function() {
         dataType: 'json'
       })
       .done(function(users){
+        $('#user-search-result').empty();
         users.forEach(function(user){
           if ($.inArray(user.id, userIds) < 0 ) {
             $('#user-search-result').append(appendUser(user))
